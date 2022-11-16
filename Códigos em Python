@@ -1,0 +1,385 @@
+------------------------------------------------------------------------------------
+
+Detran: 
+
+import math
+velocidade = float(input('Click! Seu carro foi pego no radar. Para evitar mais complicações informe sua velocidade: '))
+if velocidade <= 80:
+    print('Mil desculpas, foi um engano! Sua velocidade era {:.2f} e estava dentro dos limites!')
+else:
+    multa = (velocidade - 80) * 7 + 100
+    pontos = velocidade / 15
+    print('Pego no flagrante! Sua imprudência custou uma multa de R${}. E claro {} pontos na carteira de motorista.'.format(multa, math.trunc(pontos)))
+
+
+------------------------------------------------------------------------------------
+
+Jogo de adivinhação simples: 
+
+from time import sleep
+import random
+alea = random.randint(1, 5)
+resp = int(input('O computador pensou em um número de 1 à 5!\nTente adivinhar, você tem uma chance! '))
+print('Processando...')
+sleep (2)
+print('Você acertou! O nùmero era {} mesmo!'.format(alea) if alea == resp else 'Que azar, o número era {}. Tente novamente!'.format(alea))
+
+------------------------------------------------------------------------------------
+
+
+Impar / par:
+
+n1 = int(input('Digite um número, verificaremos se ele é par ou impar. '))
+print('Ele é par. :)' if n1 / 2 == 0 else 'É impar, confia.')
+
+------------------------------------------------------------------------------------
+
+Viagens:
+
+kmp = float(input('Seja bem vindo ao programa de passagens.\nInforme a distancia em KMs que deseja percorrer: '))
+print('O valor da sua viagem é de R$ {:.2f}'.format(kmp * 0.50) if kmp <= 200 else 'O valor da sua viagem é de R$ {:.2f}'.format(kmp * 0.45))
+print('Obrigado pela preferência, viage sempre conosco!')
+
+------------------------------------------------------------------------------------
+
+Calculadora de anos bissestos:
+
+import datetime
+ano = int(input('Seja bem vindo ao programa de calculo de ano bissesto.\nInforme o ano que deseja calcular (digite 0 para saber o atual): '))
+if ano == 0:
+    ano = datetime.date.today().year
+if ano % 4 == 0 and ano % 100 != 0 or ano % 400 == 0:
+    print('{} é um ano bissesto.'.format(ano))
+else:
+    print('{} não é um ano bissesto.'.format(ano))
+
+
+------------------------------------------------------------------------------------
+
+calculo de maiores:
+
+n1 = float(input('Escolha 3 numeros diferentes!\nDigite o primeiro número: '))
+n2 = float(input('Digite o segundo número: '))
+n3 = float(input('Digite o terceiro número: '))
+if n1 < n2:
+    if n1 < n3:
+        print('{:.2f} é o menor de todos!'.format(n1), end=' ')
+else:
+    if n2 < n3:
+        print('{:.2f} é o menor de todos!'.format(n2), end=' ')
+    else:
+        print('{:.2f} é o menor de todos!'.format(n3), end=' ')
+if n1 > n2:
+    if n1 > n3:
+        print('E o valor {:.2f} é o maior de todos!'.format(n1))
+else:
+    if n2 > n3:
+        print('E o valor {:.2f} é o maior de todos!'.format(n2))
+    else:
+        print('E o valor {:.2f} é o maior de todos!'.format(n3))
+        
+versão simples:
+
+n1 = float(input('Escolha 3 numeros diferentes!\nDigite o primeiro número: '))
+n2 = float(input('Digite o segundo número: '))
+n3 = float(input('Digite o terceiro número: '))
+menor = n1
+if n2 < n1 and n2 < n3:
+    menor = n2
+if n3 < n1 and n3 < n2:
+    menor = n3
+print('O menor valor é {:.2f} e'.format(menor), end=' ')
+maior = n1
+if n2 > n1 and n2 > n3:
+    maior = n2
+if n3 > n1 and n3 > n2:
+    maior = n3
+print('o maior valor é {:.2f}.'.format(maior))
+        
+
+------------------------------------------------------------------------------------
+
+Programa para calcular salários:
+
+salario = float(input('Seja bem vindo a nossa plataforma de atualizações trabalhistas.\nPor favor, informe seu salário: '))
+if salario > 1250:
+    salarioat = salario + (salario * 10 / 100)
+    print('Seu sálario atual com um acréscimo de 10% é de R$ {:.2f}'.format(salarioat))
+else:
+    salarioat2 = salario + (salario * 15 / 100)
+    print('Seu sálario atual com um acréscimo de 15% é de R$ {:.2f}'.format(salarioat2))
+
+
+------------------------------------------------------------------------------------
+
+Verificador de triângulos:
+
+la = float(input('Seja bem vindo ao verificador de triângulos!\nPor favor digite o valor (Em Centímetros) da primeira reta: '))
+lb = float(input('Por favor digite o valor (Em Centímetros) da segunda reta: '))
+lc = float(input('Por favor digite o valor (em centímetros) da terceira reta: '))
+l1 = lb - lc
+if l1 < la < lb + lc:
+    l2 = la - lc
+    if l2 < lb < la + lc:
+        l3 = la - lb
+        if l3 < lc < la + lb:
+            print('Usando os valores digitados é matematicamente póssível formar um triângulo.')
+        else:
+            print('As medidas digitadas não cumprem os requisitos matemáticos básicos para construir um triângulo.')
+    else:
+        print('As medidas digitadas não cumprem os requisitos matemáticos básicos para construir um triângulo.')
+else:
+    print('As medidas digitadas não cumprem os requisitos matemáticos básicos para construir um triângulo.')
+
+versão simples:
+
+la = float(input('Seja bem vindo ao verificador de triângulos!\nPor favor digite o valor (Em Centímetros) do primeiro segmento de reta: '))
+lb = float(input('Por favor digite o valor (Em Centímetros) do segundo segmento de reta: '))
+lc = float(input('Por favor digite o valor (em centímetros) do terceiro segmentyo de reta: '))
+if la < lb + lc and lb < la + lc and lc < la + lc:
+    print('Os segmentos de reta acima são matematicamente CAPAZES de formar um triângulo.')
+else:
+    print('Os segmentos de reta acima são matematicamente INCAPAZES de formar um triângulo.')
+	
+aprimorado!
+
+la = float(input('Seja bem vindo ao verificador de triângulos!\nPor favor digite o valor (Em Centímetros) do primeiro segmento de reta: '))
+lb = float(input('Por favor digite o valor (Em Centímetros) do segundo segmento de reta: '))
+lc = float(input('Por favor digite o valor (em centímetros) do terceiro segmentyo de reta: '))
+if la < lb + lc and lb < la + lc and lc < la + lc:
+    print('Os segmentos de reta acima são matematicamente CAPAZES de formar um triângulo', end=' ')
+    if la == lb == lc:
+        print('do tipo Equilátero.')
+    elif la == lb or la == lc or lb == lc:
+        print('do tipo Isósceles.')
+    else:
+        print('do tipo Escaleno.')
+else:
+    print('Os segmentos de reta acima são matematicamente INCAPAZES de formar um triângulo.')
+	
+
+------------------------------------------------------------------------------------
+
+usando elif:
+
+nome = input('Digite aqui seu nome por favor: ')
+if nome == 'Kauã':
+    print('Que nome bonito o seu!', end=' ')
+elif nome == 'Henrique' or nome == 'João' or nome == 'Mateus' or nome == 'Arthur' or nome == 'Guilherme':
+    print('Ah sim, você é amigo do Kauã!', end=' ')
+elif nome in 'Ana Paula Jéssica Leandra':
+    print('Seu nome é bonito!', end=' ')
+else:
+    print('Seu nome é bem normal, mas né!', end=' ')
+print('Tenha um bom dia {}{}{}!'.format('\033[31m', nome, '\033[m'))
+
+------------------------------------------------------------------------------------
+
+calculadora de emprestimos sem juros:
+
+nome = input('Seja bem, vindo ao nosso site! Por favor informe seu nome: ')
+salario = float(input('Por favor informe sua renda mensal liquida: '))
+emprestimo = float(input('Por favor informe o valor do empréstimo desejado: '))
+ano = int(input('Por favor informe em quanto anos você gostaria de quitar seu empréstimo: '))
+parcela = emprestimo / (ano * 12)
+if parcela >= salario * 30 / 100:
+    print('Lamentamos informar Sr(a).{} mas seu empréstimo de {}{:.2f}{} não foi aprovado.'.format(nome, '\033[2;31m', emprestimo, '\033[m'))
+    print('As parcelas de {}{:.2f}{} superam \033[2;31m30%\033[m do seu salário. Este é o limite adotado pela empresa.'.format('\033[2;31m', parcela, '\033[m'))
+else:
+    print('Sr(a).{} seu empréstimo foi aprovado!'.format(nome),end=' ')
+    print('O valor das parcelas serão de R$ {}{:.2f}{}, e será pago em {}{}{} meses.'.format('\033[32m', parcela, '\033[m', '\033[32m', ano * 12, '\033[m'))
+
+------------------------------------------------------------------------------------
+
+Conversor Binário, oct, hex:
+
+print('Seja bem vindo ao conversor de números! Por favor selecione a opção que deseja: ')
+cores = {'Limpa':'\033[m',
+         'Vermelho':'\033[31m',
+         'Verde':'\033[32m',
+         'Azul':'\033[34m'}
+per = input('{}BINÁRIO = [1]{}\n{}OCTAL = [2]{}\n{}HEXADECIMAL = [3]{}\nResposta: '.format(cores['Vermelho'], cores['Limpa'], cores['Verde'], cores['Limpa'], cores['Azul'], cores['Limpa']))
+#per = input('\033[31mBINÁRIO = [1]\033[m\n\033[32mOCTAL = [2]\033[m\n\033[34mHEXADECIMAL = [3]\033[m\nResposta: ') <-- alternativo
+if per == '1':
+    num = int(input('Por favor digite o valor que deseja converter: '))
+    binario = bin(num)[2:]
+    print('Conversão:\n{}{}'.format(cores['Vermelho'], binario))
+elif per == '2':
+    num = int(input('Por favor digite o valor que deseja converter: '))
+    octal = oct(num)[2:]
+    print('Conversão:\n{}{}'.format(cores['Verde'], octal))
+elif per == '3':
+    num = int(input('Por favor digite o valor que deseja converter: '))
+    hexadecimal = hex(num)[2:]
+    print('Conversão:\n{}{}'.format(cores['Azul'], hexadecimal))
+else:
+    print('O comando {}"{}"{} não foi reconhecido. Tente novamente'.format(cores['Vermelho'], per, cores['Limpa']))
+
+ver aula 10 curso em video python mundo 1	
+	
+------------------------------------------------------------------------------------
+
+Comparador simples de numeros:
+
+n1 = int(input('Digite o primeiro valor: '))
+n2 = int(input('digite o segundo valor: '))
+if n1 > n2:
+    print('O primeiro valor é maior.')
+elif n2 > n1:
+    print('O segundo valor é maior.')
+else:
+    print('Os valores são iguais.')
+	
+------------------------------------------------------------------------------------
+
+Calculadora Exercito:
+
+import datetime
+ano = int(input('Por favor informe seu ano de nascimento: '))
+anosis = datetime.date.today().year
+idade = anosis - ano
+if anosis - ano >= 18:
+    if idade == 17:
+        print('Você irá ter de se alistar esse ano no Exército Brasileiro. Vá a Junta Militar mais próxima para mais informações.')
+    elif idade == 18:
+        print('Este ano você terá sua primeira e segunda inspeção. Vá a Junta Militar mais próxima para mais informações.')
+    else:
+        anoali = anosis - (idade - 18)
+        print('Você consta como refratário. (Ano de alistamento {}) Vá a Junta Militar mais próxima para mais informações.'.format(anoali))
+else:
+    anoali = anosis + (18 - idade)
+    print('Você ainda não possuí idade para se alistar no Exército Brasileiro.')
+    print('Você terá que se alistar em {}'.format(anoali))
+
+------------------------------------------------------------------------------------
+
+media de notas: 2
+
+n1 = float(input('Seja bem vindo ao PCN. Por favor informe sua primeira nota: '))
+n2 = float(input('Por favor informe sua segunda nota: '))
+cores = {'Limpa':'\033[m',
+         'Vermelho':'\033[31m',
+         'Verde':'\033[32m',
+         'Azul':'\033[34m'}
+media = (n1 + n2) / 2
+if media < 5:
+    print('Sua média foi de {}{:.2f}{}, abaixo de 5, o minimo para estar aprovado.'.format(cores['Vermelho'], media, cores['Limpa']))
+elif media < 7:
+    print('Você está de recuperação. Você precisa de {}7{} pontos para estar aprovado.'.format(cores['Azul'], cores['Limpa']))
+elif media == 10:
+    print('{}Você gabaritou a prova! Nota 10! Parabéns!'.format(cores['Verde']))
+else:
+    print('Parabéns! Com sua média {}{:.2f}{} você está aprovado!'.format(cores['Verde'], media, cores['Limpa']))
+
+
+------------------------------------------------------------------------------------
+
+comparador simples:
+
+idade = int(input('Informe sua idade: '))
+if idade < 9:
+    print('Categoria MIRIM.')
+elif idade < 14:
+    print('Categoria INFANTIL')
+elif idade < 19:
+    print('categoria JUNIOR.')
+elif idade >= 20:
+    print('Categoria MASTER.')
+
+------------------------------------------------------------------------------------
+
+calculadora de imc:
+
+peso = float(input('Seja bem vindo a calculadora de IMC!\nPor favor informe seu peso (em Kilogramas): '))
+altura = float(input('Por favor informe sua altura (em Metros): '))
+imc = peso / (pow(altura, 2))
+if imc < 18.5:
+    print('Abaixo do peso.')
+elif imc < 25:
+    print('Peso ideal.')
+elif imc < 30:
+    print('Sobrepeso')
+elif imc < 40:
+    print('Obesidade')
+else:
+    print('Obesidade Mórbida.')
+
+------------------------------------------------------------------------------------
+
+# calculando promoções:
+
+cores = {'Limpa': '\033[m',
+         'Vermelho': '\033[31m',
+         'Verde': '\033[32m',
+         'Azul': '\033[34m'}
+precoS = input('Bem vindo à loja do DEV!\nPor favor informe o valor total a pagar: ')
+if precoS.isnumeric() == True:
+    preco = float(precoS)
+    print('--------' * 10)
+    print('Por favor selecione a condição de pagamento dentre as seguintes opções: ')
+    print("""[1] == À VISTA 10% OFF (cheque ou dinheiro)\n[2] == À VISTA 5% OFF (cartão)\n[3] == 2X no cartão (preço normal)\n[4] == 3X ou mais no cartão (20% de juros)""")
+    resp = input('{}Resposta: {}'.format(cores['Verde'], cores['Limpa']))
+    if resp == '1':
+        nvalor = preco - (preco * 10 / 100)
+        print('O valor final será de {}R${:.2f}{}'.format(cores['Azul'], nvalor, cores['Limpa']))
+    elif resp == '2':
+        nvalor = preco - (preco * 5 / 100)
+        print('O valor final será de {}R${:.2f}{}'.format(cores['Azul'], nvalor, cores['Limpa']))
+    elif resp == '3':
+        print('O valor final será de {}R${:.2f}{}'.format(cores['Azul'], preco, cores['Limpa']))
+    elif resp == '4':
+        nvalor = preco + (preco * 20 / 100)
+        print('O valor final será de {}R${:.2f}{}'.format(cores['Azul'], nvalor, cores['Limpa']))
+    else:
+        print('{}Por favor selecione uma opção válida e tente novamente!'.format(cores['Vermelho']))
+else:
+    print('{}"{}" não é uma opção válida! Por favor digite um valor válido e tente novamente!'.format(cores['Vermelho'], precoS))
+
+------------------------------------------------------------------------------------
+
+pedra papel tesoura:
+
+import time
+import random
+cores = {'Limpa':'\033[m',
+         'Vermelho':'\033[31m',
+         'Verde':'\033[32m',
+         'Azul':'\033[34m',
+         'Amarelo':'\033[33m'}
+print('{}Beep! Vamos jogar "Pedra Papel Tesoura"! Beep!'.format(cores['Verde']))
+resp = input('{}Beep! Você começa, prometo que não vou trapacear! Resposta: '.format(cores['Verde'])).upper().strip()
+print('Pedra...')
+time.sleep(1)
+print('Papel...')
+time.sleep(1)
+print('Tesoura!')
+time.sleep(1)
+if resp == 'PEDRA' or resp == 'PAPEL' or resp == 'TESOURA':
+    jogo = ['PEDRA', 'PAPEL', 'TESOURA']
+    escolha = random.choice(jogo)
+    if resp == escolha:
+        print('{}Mas que peninha, empate!'.format(cores['Verde']))
+    else:
+        if resp == 'PEDRA' and escolha == 'TESOURA':
+            print('{}Eu escolhi {}{}!\n{}Você escolheu {}{}!'.format(cores['Amarelo'], escolha, cores['Limpa'], cores['Azul'], resp, cores['Limpa']))
+            print('{}Você ganhou! "-_-'.format(cores['Azul']))
+        elif resp == 'PEDRA' and escolha == 'PAPEL':
+            print('{}Eu escolhi {}{}!\n{}Você escolheu {}{}!'.format(cores['Amarelo'], escolha, cores['Limpa'], cores['Azul'], resp, cores['Limpa']))
+            print('{}Eu ganhei! Beep!'.format(cores['Amarelo']))
+        elif resp == 'TESOURA' and escolha == 'PEDRA':
+            print('{}Eu escolhi {}{}!\n{}Você escolheu {}{}!'.format(cores['Amarelo'], escolha, cores['Limpa'], cores['Azul'], resp, cores['Limpa']))
+            print('{}Eu ganhei! Beep!'.format(cores['Amarelo']))
+        elif resp == 'TESOURA' and escolha == 'PAPEL':
+            print('{}Eu escolhi {}{}!\n{}Você escolheu {}{}!'.format(cores['Amarelo'], escolha, cores['Limpa'], cores['Azul'], resp, cores['Limpa']))
+            print('{}Você ganhou! "-_-'.format(cores['Azul']))
+        elif resp == 'PAPEL' and escolha == 'PEDRA':
+            print('{}Eu escolhi {}{}!\n{}Você escolheu {}{}!'.format(cores['Amarelo'], escolha, cores['Limpa'], cores['Azul'],resp, cores['Limpa']))
+            print('{}Você ganhou! "-_-'.format(cores['Azul']))
+        elif resp == 'PAPEL' and escolha == 'TESOURA':
+            print('{}Eu escolhi {}{}!\n{}Você escolheu {}{}!'.format(cores['Amarelo'], escolha, cores['Limpa'], cores['Azul'],resp, cores['Limpa']))
+            print('{}Eu ganhei! Beep!'.format(cores['Amarelo']))
+    print('{}Fim de jogo! Beep!'.format(cores['Verde']))
+else:
+    print('{}Por favor digite um valor válido! {}{}"{}"{} não é um valor válido!'.format(cores['Amarelo'], cores['Limpa'],cores['Vermelho'], resp, cores['Amarelo']))
+
+------------------------------------------------------------------------------------
