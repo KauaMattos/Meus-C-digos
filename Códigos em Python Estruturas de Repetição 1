@@ -1,0 +1,276 @@
+
+usando o laço de repetição FOR:
+
+simples:
+
+for variavel in range(1, 7):
+    print('Oi')
+print('Fim do laço.')
+
+se a varável for citada dentro do print ele faz uma contagem simples. ex:
+
+for variavel in range(1,7):
+    print(variavel, end=' -> ')
+print('Fim do laço.')
+
+para fazer a contagem ao contrário:
+
+for variavel in range(6, 0, -1):
+    print(variavel, end=' -> ')
+print('Fim do laço.')
+
+para fazer uma contagem pulando de dois em dois
+
+for variavel in range(0, 7, 2):
+    print(variavel, end=' -> ')
+print('Fim do laço.')
+
+usando uma variável contadora de referência:
+
+cont = int(input('Insira o contador: '))
+for variavel in range(1, cont + 1):
+    print(variavel, end=' -> ')
+print('Fim do laço.')
+
+usar isso quando quiser inverter uma string (Obs vai desde o inicio até o fim em passo negativo.)
+
+frase = 'atie'
+print(frase[::-1])
+
+------------------------------------------------------------------------------------
+
+contador automático:
+
+inicio = int(input('Insira o inicio da contagem: '))
+fim = int(input('Inira o numero final da contagem: '))
+passo = int(input('insira o passo da contagem: '))
+for variavel in range(inicio, fim + 1, passo):
+    print(variavel, end=' -> ')
+print('Fim do laço.')
+
+------------------------------------------------------------------------------------
+
+somador automático:
+
+soma = 0
+contador = int(input('Digite quantas vezes você quer somar: '))
+for c in range(0, contador):
+    n = int(input('Digite um valor: '))
+    soma += n
+print('O resultado é: {}'.format(soma))
+
+------------------------------------------------------------------------------------
+
+contando de pares:
+
+for variavel in range(2, 51, 2):
+    print(variavel)
+print('fim.')
+
+------------------------------------------------------------------------------------
+
+somando os impares entre 1 e 500 divisiveis por 3:
+
+soma = 0
+cont = 0
+for variavel in range(1, 500, 2):
+    if variavel % 3 == 0:
+        soma += variavel
+        cont += 1
+print('A soma de todos os {} valores solicitados é {}'.format(cont, soma))
+print('Fim do laço.')
+
+somando apenas numeros pares:
+
+soma = 0
+cont = 0
+for variavel in range(0, 6):
+    numero = float(input('Digite um número: '))
+    if numero % 2 == 0:
+        soma += numero
+        cont +=1
+print('Voce informou {} numeros pares. e sua soma é {}.'.format(cont, soma))
+
+------------------------------------------------------------------------------------
+
+tabuada usando for simples:
+
+numero = int(input('insira o numero no qual deseja ver a tabuada: '))
+inicio = numero
+fim = numero + (numero * 10)
+for variavel in range(inicio, fim, numero):
+    print(variavel, end=' -> ')
+print('Fim do laço.')
+
+mais bonita: 
+
+num = int(input('Digite um numero para ver a tabuada dele: '))
+for contador in range(1, 11):
+    print('{} x {:2} = {}'.format(num, contador, num * contador))
+
+------------------------------------------------------------------------------------
+
+calculo de progressão aritmética:
+
+priter = float(input('Por favor informe o primeiro termo da progressão aritmética: '))
+razao = float(input('Por favor informe a razão da progressão aritmética: '))
+print('{:.2f}'.format(priter), end=' -> ')
+for variavel in range(0, 9):
+    priter += razao
+    print('{:.2f}'.format(priter), end=' -> ')
+print('Fim.')
+
+a versão do quanabara: n lê float
+
+primeiro = int(input('Digite o primeiro numero da progressão: '))
+razao = int(input('Digite a razão da progressão: '))
+decimo = (primeiro + 8) * razao
+for contador in range(primeiro, decimo, razao):
+    print('{} '.format(contador), end='-> ')
+print('Acabou.')
+
+
+------------------------------------------------------------------------------------
+
+calculadora de primos 2:
+
+nume = int(input('Digite um numero: '))
+tot = 0
+for contador in range(1, nume + 1):
+    if nume % contador == 0:
+        print('\033[33m', end='')
+        tot += 1
+    else:
+        print('\033[31m',end='')
+    print('{}'.format(contador), end=' ')
+print('\n\033[mO numero {} é divisivel {} vezes'.format(nume, tot))
+if tot == 2:
+    print('O numero {} é primo.'.format(nume))
+else:
+    print('O numero {} não é primo.'.format(nume))
+
+------------------------------------------------------------------------------------
+
+analisador de palindromos:
+
+frase = input('Por favor digite uma frase para teste: ').upper().strip()
+palavras = frase.split()
+junto = ''.join(palavras)
+inverso = junto[::-1]
+print('O oposto de {} é {}.'.format(junto, inverso))
+if inverso == junto:
+    print('Aqui temos um palíndromo!')
+else:
+    print('A frase em questão não é um palíndromo!')
+	
+usando o for:
+
+frase = input('Por favor digite uma frase para teste: ').upper().strip()
+palavras = frase.split()
+junto = ''.join(palavras)
+inverso = ''
+for contador in range(len(junto) - 1, -1, -1):
+    inverso += junto[contador]
+print('O oposto de {} é {}.'.format(junto, inverso))
+if inverso == junto:
+    print('Aqui temos um palíndromo!')
+else:
+    print('A frase em questão não é um palíndromo!')
+	
+------------------------------------------------------------------------------------
+
+contador de maiores de idade:
+
+from datetime import date
+contmaior = 0
+contmenor = 0
+anosis = date.today().year
+for contador in range(0, 7):
+    ano = int(input('Digite o seu ano de nascimento: '))
+    idade = anosis - ano
+    if idade >= 21:
+        contmaior += 1
+    else:
+        contmenor += 1
+print('O numero de maiores de idade é {}, contra {} menores de idade.'.format(contmaior, contmenor))
+
+------------------------------------------------------------------------------------
+
+comparador de pesos:
+
+pesomaior = 0
+pesomenor = 0
+for contador in range(0, 5):
+    peso = float(input('Indique seu peso: '))
+    if contador == 0:
+        pesomenor = peso
+        pesomaior = peso
+    else:
+        if peso < pesomenor:
+            pesomenor = peso
+    if peso > pesomaior:
+        pesomaior = peso
+print('O peso maior foi {} e o menor foi {}.'.format(pesomaior, pesomenor))
+
+------------------------------------------------------------------------------------
+
+comparador 2:
+
+media = 0
+idademaior = 0
+Hmaisvelho = ''
+mulheresM20 = 0
+for contador in range(1, 5):
+    print('---'*3, 'Usuário {}'.format(contador), '---'*3)
+    nome = input('Por favor informe seu nome: ')
+    idade = int(input('Por favor informe sua idade: '))
+    sexo = input('Por favor informe seu sexo: ').strip().upper()
+    media += (idade / 4)
+    if contador == 1:
+        if sexo == 'MASCULINO' or sexo == 'M' and idade > idademaior:
+            idademaior = idade
+            Hmaisvelho = nome
+    else:
+        if sexo == 'MASCULINO' or sexo == 'M' and idade > idademaior:
+            idademaior = idade
+            Hmaisvelho = nome
+        else:
+            if sexo == 'FEMININO' or sexo == 'F' and idade < 20:
+                mulheresM20 += 1
+print('A média de idade do grupo é: {}.\nO homem mais velho tem {} anos e se chama {}.\nAo todo são {} mulheres com menos de 20 anos.'.format(media,idademaior, Hmaisvelho, mulheresM20 ))
+
+ou usando in inves de == e poupando uma linha:
+
+media = 0
+idademaior = 0
+Hmaisvelho = ''
+mulheresM20 = 0
+for contador in range(1, 5):
+    print('---'*3, 'Usuário {}'.format(contador), '---'*3)
+    nome = input('Por favor informe seu nome: ')
+    idade = int(input('Por favor informe sua idade: '))
+    sexo = input('Por favor informe seu sexo: ').strip().upper()
+    media += (idade / 4)
+    if contador == 1 and sexo in 'MASCULINO' or sexo in 'M' and idade > idademaior:
+            idademaior = idade
+            Hmaisvelho = nome
+    else:
+        if sexo == 'MASCULINO' or sexo == 'M' and idade > idademaior:
+            idademaior = idade
+            Hmaisvelho = nome
+        else:
+            if sexo == 'FEMININO' or sexo == 'F' and idade < 20:
+                mulheresM20 += 1
+print('A média de idade do grupo é: {}.\nO homem mais velho tem {} anos e se chama {}.\nAo todo são {} mulheres com menos de 20 anos.'.format(media,idademaior, Hmaisvelho, mulheresM20 ))
+
+ usando in:
+
+teste = input('digit aai: ')
+if teste  in 'FEMININO':
+    print('gg')
+else:
+    print('deu ruin')
+	
+------------------------------------------------------------------------------------
+
+
